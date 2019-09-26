@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+
+<struts-config>
+    <form-beans>
+        <form-bean name="LoginForm" type="com.struct.todo.app.model.LoginForm"/>
+        <form-bean name="SignUpForm" type="com.struct.todo.app.model.SignUpForm"/>
+        <form-bean name="ToDoForm" type="com.struct.todo.app.model.ToDoForm"/>
+    </form-beans>
+    
+    <global-exceptions>
+        <exception
+          key="error.global.message"
+          type="java.lang.Exception"
+          handler="com.struct.todo.app.exception.GlobalExceptionHandler"
+          path="/error.jsp" />
+    </global-exceptions>
+    
+    <action-mappings>
+        <action input="/login.jsp" name="LoginForm" path="/Login" scope="session" type="com.struct.todo.app.controller.LoginAction">
+            <forward name="success" path="/list.do?method=getList" redirect="true"/>
+            <forward name="failure" path="/failure.jsp" />
+        </action>
+
+        <action path="/list" type="com.struct.todo.app.controller.ToDoAction" parameter="method" scope="request">
+            <forward name="success" path="/list.jsp" ></forward>
+            <forward name="update" path="/addtodo.jsp"></forward>
+            <forward name="failure" path="/error.jsp"></forward>
+        </action>
+        
+        <action path="/todo" type="com.struct.todo.app.controller.ToDoAction" parameter="method" name="ToDoForm" scope="request">
+            <forward name="success" path="/list.jsp"></forward>
+            <forward name="failure" path="/error.jsp"></forward>
+        </action>
+        
+        <action path="/logout" type="com.struct.todo.app.controller.LogoutAction">
+            <forward name="success" path="/login.jsp" ></forward>
+            <forward name="failure" path="/error.jsp"></forward>
+        </action>
+        
+        <action input="/signup.jsp" name="SignUpForm" path="/signup" type="com.struct.todo.app.controller.SignUpAction">
+            <forward name="success" path="/login.jsp" redirect="false"/>
+            <forward name="failure" path="/failure.jsp" />
+        </action>        
+    </action-mappings>
+
+    <message-resources parameter="com/struct/todo/app/application.properties"/>
+
+</struts-config>
