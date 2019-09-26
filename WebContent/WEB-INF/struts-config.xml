@@ -38,7 +38,7 @@
         </action>
         
         <action path="/logout" type="com.struct.todo.app.controller.LogoutAction">
-            <forward name="success" path="/login.jsp" ></forward>
+            <forward name="success" path="/login.jsp" redirect="true"></forward>
             <forward name="failure" path="/error.jsp"></forward>
         </action>
         

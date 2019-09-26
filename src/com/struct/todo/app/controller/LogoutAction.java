@@ -2,6 +2,7 @@ package com.struct.todo.app.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.apache.struts.action.Action;
 import org.apache.struts.action.ActionForm;
@@ -15,7 +16,8 @@ public class LogoutAction extends Action{
 	public ActionForward execute(ActionMapping mapping, ActionForm form,
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
-		request.getSession().invalidate();
+		HttpSession httpSession = request.getSession(false);
+		httpSession.invalidate();
 		return mapping.findForward(SUCCESS);
 	}
 }
