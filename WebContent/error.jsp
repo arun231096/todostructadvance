@@ -10,6 +10,7 @@
 </head>
 <body>
     <h1>Sorry Error on page</h1>
+    <html:errors property="error.global.message"/>
     <script type="text/javascript">
         alert("Internal Server Error please login again");
         window.location = "logout.do";
