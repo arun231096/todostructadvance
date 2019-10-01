@@ -4,6 +4,9 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+import com.struct.todo.app.exception.AppException;
+import com.struct.todo.app.exception.ErrorCode;
+
 /**
  * @author arunkumar.angappan
  *
@@ -15,9 +18,13 @@ public class DbConfig {
 	private static String password = "sql123";
 	private static Connection connection;
 
-	public Connection getConnection() throws SQLException, ClassNotFoundException {
-	Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-	connection = DriverManager.getConnection(Url, user, password);
+	public Connection getConnection() {
+	try {
+		Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+		connection = DriverManager.getConnection(Url, user, password);
+	} catch (ClassNotFoundException | SQLException e) {
+		throw new AppException(ErrorCode.INTERNAL_ERROR, e);
+	}
 	return connection;
 	}
 }

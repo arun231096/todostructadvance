@@ -8,7 +8,7 @@
 <struts-config>
     <form-beans>
         <form-bean name="LoginForm" type="com.struct.todo.app.model.LoginForm"/>
-        <form-bean name="SignUpForm" type="com.struct.todo.app.model.SignUpForm"/>
+        <form-bean name="SignUpForm" type="com.struct.todo.app.model.UserDetailsForm"/>
         <form-bean name="ToDoForm" type="com.struct.todo.app.model.ToDoForm"/>
     </form-beans>
     
@@ -32,8 +32,24 @@
             <forward name="failure" path="/error.jsp"></forward>
         </action>
         
+        <action path="/delete" type="com.struct.todo.app.controller.ToDoAction" parameter="method" scope="request">
+            <forward name="success" path="/list.do?method=getList" redirect="true"></forward>
+            <forward name="failure" path="/error.jsp"></forward>
+        </action>
+        
         <action path="/todo" type="com.struct.todo.app.controller.ToDoAction" parameter="method" name="ToDoForm" scope="request">
-            <forward name="success" path="/list.jsp"></forward>
+            <forward name="success" path="/list.do?method=getList" redirect="true"></forward>
+            <forward name="failure" path="/error.jsp"></forward>
+        </action>
+        
+        <action path="/user" type="com.struct.todo.app.controller.UserProfileAction" parameter="method">
+            <forward name="success" path="/profile.jsp"></forward>
+            <forward name="deleted" path="/logout.do" redirect="true"></forward>
+            <forward name="failure" path="/error.jsp"></forward>
+        </action>
+        
+        <action path="/user/update" type="com.struct.todo.app.controller.UserProfileAction" parameter="method" name="SignUpForm" scope="request">
+            <forward name="success" path="/list.do?method=getList" redirect="true"></forward>
             <forward name="failure" path="/error.jsp"></forward>
         </action>
         

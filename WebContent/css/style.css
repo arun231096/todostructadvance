@@ -6,3 +6,8 @@
 	box-shadow: 0px 0px 3px;
 	border-radius: 0.5em;
 }
+
+#pointer:hover{
+    cursor: pointer;
+    color: blue;
+}

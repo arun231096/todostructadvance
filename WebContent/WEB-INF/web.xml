@@ -13,6 +13,14 @@
       <filter-name>workflow</filter-name>
       <url-pattern>/todo.do</url-pattern>
    </filter-mapping>
+   <filter-mapping>
+      <filter-name>workflow</filter-name>
+      <url-pattern>/list/delete.do</url-pattern>
+   </filter-mapping>
+   <filter-mapping>
+      <filter-name>workflow</filter-name>
+      <url-pattern>/user/update.do</url-pattern>
+   </filter-mapping>
 
     <servlet>
         <servlet-name>action</servlet-name>

@@ -18,5 +18,8 @@
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/struts.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/javax.servlet.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/sqljdbc4-2.0.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/log4j-1.2.17-javadoc.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/log4j-1.2.17-sources.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/log4j-1.2.17.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

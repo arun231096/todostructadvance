@@ -1,5 +1,7 @@
 package com.struct.todo.app.controller;
 
+import java.sql.SQLException;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -8,7 +10,7 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
-import com.struct.todo.app.model.SignUpForm;
+import com.struct.todo.app.model.UserDetailsForm;
 
 public class SignUpAction extends Action{
 	
@@ -16,12 +18,12 @@ public class SignUpAction extends Action{
     private final static String FAILURE = "failure";
     
     public ActionForward execute(ActionMapping mapping, ActionForm form,
-            HttpServletRequest request, HttpServletResponse response) {
-    	SignUpForm signup = (SignUpForm) form;
-    	if(signup.getUsername().length() != 0) {
+            HttpServletRequest request, HttpServletResponse response) throws SQLException {
+    	UserDetailsForm signup = (UserDetailsForm) form;
+    	if(signup.save()) {
     		return mapping.findForward(SUCCESS);
-    	}
-    	return mapping.findForward(FAILURE);
+    	} else
+    		return mapping.findForward(FAILURE);
     }
 	
 }

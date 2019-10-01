@@ -8,6 +8,7 @@
       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
       <title>Signup ToDo</title>
       <link href="css/style.css" rel="stylesheet" type="text/css"/>
+      <script type="text/javascript" src="js/script.js"></script>
    </head>
    <body>
         <div class="container">
@@ -19,7 +20,11 @@
                             <h1>ToDo SignUp</h1>
                         </div>
                     </div>
-                    <html:form action="/signup">
+                    <html:form action="/signup" styleId="form" onsubmit="return validateProfileForm()">
+                        <div class="form-group"> 
+                            <label>Name</label>
+                            <html:text name="SignUpForm" property="name" styleClass="form-control"/>
+                        </div>
                         <div class="form-group"> 
                             <label>User Name</label>
                             <html:text name="SignUpForm" property="username" styleClass="form-control"/>
@@ -48,4 +53,7 @@
             </div>
         </div>
     </body>
+    <script type="text/javascript">
+    cleanForm();
+    </script>
 </html>

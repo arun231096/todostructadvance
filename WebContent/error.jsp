@@ -6,14 +6,14 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>500 ERROR</title>
 </head>
 <body>
     <h1>Sorry Error on page</h1>
     <html:errors property="error.global.message"/>
     <script type="text/javascript">
-        alert("Internal Server Error please login again");
-        window.location = "logout.do";
+        alert("validation fails on data");
+        window.location = "list.do?method=getList";
     </script>
 </body>
 </html>

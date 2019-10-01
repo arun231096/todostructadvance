@@ -19,6 +19,11 @@ public class AppException extends RuntimeException{
 		super();
 		this.errorCode = code;
 	}
+	
+	public AppException(ErrorCode code, Throwable cause) {
+		super(cause);
+		this.errorCode = code;
+	}
 
 	public AppException(List<ErrorCode> errorCodes) {
 		super();

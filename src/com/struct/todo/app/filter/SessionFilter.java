@@ -25,7 +25,7 @@ public class SessionFilter implements Filter{
 		if(request.getSession(false).getAttribute("user") != null) {
 			arg2.doFilter(arg0, arg1);
 		} else {
-			response.sendRedirect("failure.jsp");
+			response.sendRedirect("sessionerror.jsp");
 		}
 	}
 
